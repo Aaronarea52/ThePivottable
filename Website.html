@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pivot Table Example</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/pivottable/2.23.0/pivot.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pivottable/2.23.0/pivot.min.js"></script>
+</head>
+<body>
+
+<div id="output" style="margin: 30px;"></div>
+
+<script type="text/javascript">
+    // Function to fetch JSON data
+    async function loadData() {
+        const response = await fetch('data.json'); // Adjust the path if your JSON file is in a different directory
+        const jsonData = await response.json();
+
+        $("#output").pivotUI(jsonData, {
+            rows: ["dimension1"], // Adjust according to your data columns
+            cols: ["dimension2"],
+            aggregatorName: "Sum",
+            vals: ["metric"],
+            rendererName: "Table"
+        });
+    }
+
+    // Call loadData when the page loads
+    $(loadData);
+</script>
+
+</body>
+</html>
