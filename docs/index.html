@@ -3,57 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Pivot Table Page</title>
+    
     <!-- Include jQuery -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<!-- Include PivotTable.js -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pivottable/2.23.0/pivot.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pivottable/2.23.0/pivot.min.css"></script>
-<!-- Your Script.js file -->
-<script src="Script.js"></script>
-
-    <title>Welcome to My Website</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <!-- Include jQuery UI (for sortable interactions in PivotTable.js) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    
+    <!-- Include PivotTable.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pivottable/2.23.0/pivot.min.js"></script>
+    
+    <!-- Include PivotTable.js CSS for styling -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pivottable/2.23.0/pivot.min.css">
+    
+    <!-- Add custom styles here if you have any -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        
+        /* Additional custom styles */
+    </style>
 </head>
 <body>
     <h1>Hello, World!</h1>
     <p>Welcome to my GitHub Pages site.</p>
-    <!-- Your content goes here -->
-     <title>My Pivot Table</title>
-    <!-- Include PivotTable.js and dependencies from a CDN -->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/pivottable/2.23.0/pivot.min.css">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pivottable/2.23.0/pivot.min.js"></script>
-</head>
-<body>
-    <h1>Pivot Table Page</h1>
+    <h2>Welcome to My Pivot Table Page</h2>
+    
+    <!-- Placeholder where the pivot table will be rendered -->
     <div id="output" style="margin: 30px;"></div>
-    <!-- Your content goes here -->
-    <script type="text/javascript">
-        // Your JavaScript code will go here
-        // Fetch your JSON data and initialize PivotTable.js
-fetch('data.json')  // Make sure 'data.json' is the correct path to your JSON file
-  .then(response => response.json())
-  .then(function(data) {
-    // Initialize the pivot table with your data
-    $("#output").pivotUI(data, {
-      rows: ["attribute1"], // attributes from your JSON data
-      cols: ["attribute2"],
-      aggregatorName: "sum", // can be "count", "average", "sum", "min", "max", etc.
-      vals: ["attributeToSum"],
-      rendererName: "Table", // can be "Table", "Bar Chart", "Heatmap", etc.
-      rendererOptions: {
-        table: {
-          clickCallback: function(e, value, filters, pivotData) {
-            // code to run on cell click
-          }
-        }
-      }
-    });
-  })
-  .catch(error => console.error('Error loading the JSON data:', error));
-    </script>
+    
+    <!-- Your Script.js file -->
+    <!-- Make sure Script.js contains the correct initialization for PivotTable.js -->
     <script src="Script.js"></script>
-    <div id="output"></div>
-
-
 </body>
 </html>
