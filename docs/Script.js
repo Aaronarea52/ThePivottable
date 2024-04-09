@@ -1,21 +1,12 @@
-// Fetch your JSON data and initialize PivotTable.js
-fetch('data.json')  // Make sure 'data.json' is the correct path to your JSON file
-  .then(response => response.json())
-  .then(function(data) {
-    // Initialize the pivot table with your data
+$(function() {
+  $.getJSON("data.json", function(data) {
     $("#output").pivotUI(data, {
-      rows: ["attribute1"], // attributes from your JSON data
+      rows: ["attribute1"], // Make sure these attributes exist in your JSON data
       cols: ["attribute2"],
-      aggregatorName: "sum", // can be "count", "average", "sum", "min", "max", etc.
       vals: ["attributeToSum"],
-      rendererName: "Table", // can be "Table", "Bar Chart", "Heatmap", etc.
-      rendererOptions: {
-        table: {
-          clickCallback: function(e, value, filters, pivotData) {
-            // code to run on cell click
-          }
-        }
-      }
+      aggregatorName: "sum", // Use a valid aggregator name
+      rendererName: "Table"
+      // ... other options
     });
-  })
-  .catch(error => console.error('Error loading the JSON data:', error));
+  }).catch(error => console.error('Error loading the JSON data:', error));
+});
