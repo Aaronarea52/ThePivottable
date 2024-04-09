@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Pivot Table Page</title>
-    
+  <!-- This is the chart.js Script -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <!-- Include jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
@@ -56,9 +58,36 @@
     
     <!-- Placeholder where the pivot table will be rendered -->
     <div id="output" style="margin: 30px;"></div>
-    
+     <canvas id="myChart" width="400" height="400"></canvas>
     <!-- Your Script.js file -->
     <!-- Make sure Script.js contains the correct initialization for PivotTable.js -->
     <script src="Script.js"></script>
+    <canvas id="myChart" width="400" height="400"></canvas>
+<script>
+        // Your Chart.js code here
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: /* Your Workcenter labels */,
+            datasets: [{
+              label: 'Hours Remaining by Workcenter',
+              data: /* Your summarized data */,
+              backgroundColor: /* Colors for your bars */,
+              borderColor: /* Border colors for your bars */,
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                }
+              }]
+            }
+          }
+        });
+    </script>
 </body>
 </html>
